@@ -1,0 +1,19 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>{% block title %}{% endblock %}</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+  </head>
+  <div class="w3-sidebar w3-bar-block" style="width: 25%">
+    <a href="{% url 'home'%}" class="w3-bar-item w3-button">Home</a>
+    <a href="{% url 'notes'%}" class="w3-bar-item w3-button">Notes</a>
+    <a href="#" class="w3-bar-item w3-button">Analytics</a>
+  </div>
+
+  <div style="margin-left: 25%">{%block content%}{% endblock %}</div>
+</html>
