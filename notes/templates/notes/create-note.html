@@ -3,34 +3,25 @@
 
 
   {%block content%}
-    <h1 id="title" contenteditable="true" spellcheck="false"> Title </h1>
-    <div id="notesBox" class="glowing-text" contenteditable="true" spellcheck="false"></div>
-    <div id="boxesContainer">   
-      <button class="btn-submit" onClick="saveContent()">Save</button>
-    </div>
-  
-   
+    <form method="post" action="/notes/save-note/">
+        {% csrf_token %}
+        <h1 id="title" contenteditable="true" spellcheck="false"> Title </h1>
+        <div id="notesBox"  class="glowing-text" contenteditable="true" spellcheck="false"></div>
+        <div id="boxesContainer">   
+          <button type="submit" class="btn-submit" onclick="saveContent()">Save</button>
+        </div>
+          <!-- Hidden input to store content -->
+        <input type="hidden" name="title" id="hiddenTitle">
+          <!-- Hidden input to store content -->
+        <input type="hidden" name="content" id="hiddenContent">
+    </form>
     <script>
-      function saveContent() {
-          let content = document.getElementById("notesBox").innerHTML;
-          let title = document.getElementById("title").innerHTML;
-          let base_url = window.location.origin;
-          fetch(`${base_url}/notes/save-note/`, { 
-              method: 'POST',
-              headers: {
-                  'Content-Type': 'application/json',
-                  'X-CSRFToken': '{{ csrf_token }}' // Django requires CSRF protection
-              },
-              body: JSON.stringify({title: title,  content: content })
-          })
-          .then(response => response.json())
-          .then(data => {
-              if (data.status === "success") {
-                  alert("Note saved!");
-              }
-          })
-          .catch(error => console.error("Error:", error));
-      }
+        function saveContent() {
+            let content = document.getElementById("notesBox").innerHTML; // Get HTML content
+            let title = document.getElementById("title").innerHTML; // GET title content
+            document.getElementById("hiddenTitle").value = title;  // Save to hidden input
+            document.getElementById("hiddenContent").value = content;  // Save to hidden input
+        }
   </script>
 
   {% endblock %}

@@ -22,6 +22,16 @@ body {
     background-attachment: fixed;
 }
 
+th,
+tr td {
+    border: #00ffee;
+    font-size: large;
+    margin: 10px solid transparent;
+    padding: 20px;
+    font-family: 'Quantico', serif;
+    color: #00ffee;
+}
+
 
 #notesBox {
     height: 90%;
@@ -33,9 +43,10 @@ body {
 }
 
 #boxesContainer {
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
+    padding: 20px;
+    display: flex;
+    justify-content: flex-end;
+    right: 20px;
 }
 
 .btn-submit {

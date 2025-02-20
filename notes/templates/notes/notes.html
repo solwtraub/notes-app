@@ -18,14 +18,16 @@
           <tr>
               <td><input type="checkbox" value="{{note.id}}"></td>
               <td>{{note.title}}</td>
-              <td>{{doc.created_at|timesince}} ago</td>
+              <td>{{note.created_at|timesince}} ago</td>
               <td>{{note.user}}</td>
               <td>{{note.folder}}</td>
           </tr>
           {% endfor %}
       </tbody>
   </table>
-
+  <div class="btn-submit" >
+    <a href="{% url 'create_note'%}">Create Note</a>
+  </div>
   {% endblock %}
 
 
