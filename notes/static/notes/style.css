@@ -1,0 +1,105 @@
+h1 {
+    position: relative;
+    color: cyan;
+    margin-left: 10px;
+    font-family: "quantico", serif;
+}
+
+#title {
+    margin: 10px solid transparent;
+    outline: none;
+}
+
+p {
+    padding: 5px;
+    align-self: center;
+    color: aqua;
+}
+
+body {
+    background: radial-gradient(skyblue, black);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+
+#notesBox {
+    height: 90%;
+    width: 90%;
+    padding: 20px solid transparent;
+    position: relative;
+    outline: none;
+    margin: 10px;
+}
+
+#boxesContainer {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.btn-submit {
+    width: 100px;
+    height: 40px;
+    border-radius: 8px;
+    font-family: "Quantico", serif;
+    background: linear-gradient(skyblue, red);
+    position: relative;
+    top: 10px;
+    left: 10px;
+    color: white;
+}
+
+.glowing-text {
+    font-size: 2rem;
+    font-weight: light;
+    font-family: "Michroma", serif;
+    color: white;
+    font-style: italic;
+    /* Gradient Background (Hidden behind text) */
+    background-image: linear-gradient(45deg, #FFFF, #fffb00, #48ff00, #00ffee, #2b65ff, #8000ff);
+    background-size: 300% 300%;
+
+    /* Clip the background to the text */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    /* Apply animation */
+    animation: glowing-text 4s infinite alternate ease-in-out;
+
+}
+
+@keyframes glowing-text {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+#box1 {
+    border: 1px solid;
+    height: 300px;
+    width: 300px;
+    background-color: skyblue;
+
+    position: relative;
+
+    top: 50px;
+    left: 50px;
+}
+
+#box2 {
+    border: 1px solid;
+    height: 100px;
+    width: 100px;
+    background-color: tomato;
+
+    position: absolute;
+}

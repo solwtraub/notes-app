@@ -10,4 +10,6 @@ class NoteForm(forms.ModelForm):
             'content'
         ]
 
-  
+class NoteFormDj(forms.Form):
+    title = forms.CharField(max_length=255)
+    content = forms.CharField(widget=forms.Textarea)

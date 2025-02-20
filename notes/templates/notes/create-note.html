@@ -1,0 +1,38 @@
+{%extends 'base.html'%} {%block title%} Your notes {% endblock %} 
+{% load static %}
+
+
+  {%block content%}
+    <h1 id="title" contenteditable="true" spellcheck="false"> Title </h1>
+    <div id="notesBox" class="glowing-text" contenteditable="true" spellcheck="false"></div>
+    <div id="boxesContainer">   
+      <button class="btn-submit" onClick="saveContent()">Save</button>
+    </div>
+  
+   
+    <script>
+      function saveContent() {
+          let content = document.getElementById("notesBox").innerHTML;
+          let title = document.getElementById("title").innerHTML;
+          let base_url = window.location.origin;
+          fetch(`${base_url}/notes/save-note/`, { 
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json',
+                  'X-CSRFToken': '{{ csrf_token }}' // Django requires CSRF protection
+              },
+              body: JSON.stringify({title: title,  content: content })
+          })
+          .then(response => response.json())
+          .then(data => {
+              if (data.status === "success") {
+                  alert("Note saved!");
+              }
+          })
+          .catch(error => console.error("Error:", error));
+      }
+  </script>
+
+  {% endblock %}
+
+
